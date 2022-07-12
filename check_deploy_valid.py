@@ -12,7 +12,7 @@ SKIP_EXIT_CODE = 78
 ERROR_EXIT_CODE = 1
 
 
-def _should_deploy(branch: str, deploy_to: str):
+def _should_deploy(branch: str, deploy_to: str, autodeploy_branches):
     # Check for deployment target first
     if deploy_to is not None:
         print(f"Deployment target is valid, will deploy to {deploy_to}")
@@ -44,7 +44,7 @@ def main():
     print(f"Branch is {branch}, deployment target is {deploy_to}")
 
     # Should we deploy?
-    if _should_deploy(branch, deploy_to):
+    if _should_deploy(branch, deploy_to, autodeploy_branches):
         # Make sure everything's valid for deployment. In particular, git branch business.
         if check_mainline and branch != mainline_branch_name:
             print("Validating state of git branches")

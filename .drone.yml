@@ -17,5 +17,5 @@ steps:
       repo: austin1howard/drone-plugin-deploy-gate
       tags:
         - latest
-        - "1.0.1"
+        - "1.0.2"
       squash: true
