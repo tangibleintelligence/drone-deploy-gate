@@ -46,7 +46,7 @@ def main():
     # Should we deploy?
     if _should_deploy(branch, deploy_to):
         # Make sure everything's valid for deployment. In particular, git branch business.
-        if check_mainline:
+        if check_mainline and branch != mainline_branch_name:
             print("Validating state of git branches")
 
             # There's probably a way to do this with a python library directly, but I know the git commands needed so
